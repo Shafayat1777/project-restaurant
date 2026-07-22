@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3mwigxnguc6v"]
 
 [ext_resource type="Texture2D" uid="uid://c2useki143ij8" path="res://assets/images/player/character_sprite_sheet.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dweqcbthm1vw1" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -49,6 +50,10 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
 atlas = ExtResource("1_3vyb7")
@@ -124,6 +129,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}],
+"loop": 1,
+"name": &"idle_stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ej7")
 }, {
 "duration": 1.0,
@@ -147,9 +160,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1842544526]
+script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=582253373]
 sprite_frames = SubResource("SpriteFrames_0u4sf")
-animation = &"idle_left"
-frame = 1
-frame_progress = 0.3245841
+animation = &"idle_stand"
