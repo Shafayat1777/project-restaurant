@@ -6,7 +6,6 @@
 [node name="Main" type="Node2D" unique_id=1886765210]
 
 [node name="LevelRoot" parent="." unique_id=658541266 instance=ExtResource("1_0wfyh")]
-position = Vector2(0, 129)
 
 [node name="Player" parent="." unique_id=1842544526 instance=ExtResource("1_o5qli")]
 position = Vector2(546, 316)
