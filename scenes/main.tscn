@@ -8,5 +8,5 @@
 [node name="LevelRoot" parent="." unique_id=658541266 instance=ExtResource("1_0wfyh")]
 
 [node name="Player" parent="." unique_id=1842544526 instance=ExtResource("1_o5qli")]
-position = Vector2(546, 316)
+position = Vector2(1032, 272)
 scale = Vector2(4, 4)
