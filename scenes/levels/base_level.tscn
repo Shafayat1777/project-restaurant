@@ -322,5 +322,5 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAKAAkAAAAMAAAAAAAKAAoAAAAMAAEAAAALAAkAAAANAAAAAAALAAoAAAANAAEAAAA=")
 tile_set = SubResource("TileSet_o3nph")
 
-[node name="Area2D" parent="." unique_id=1640987153 instance=ExtResource("3_ukglk")]
-position = Vector2(1035, 156)
+[node name="Stove" parent="." unique_id=330518970 instance=ExtResource("3_ukglk")]
+position = Vector2(1075, 150)
