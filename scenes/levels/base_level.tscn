@@ -2,10 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://k16ttkcb5ry4" path="res://assets/images/tileset/floor_wall_sprite_sheet.png" id="1_md458"]
 [ext_resource type="Texture2D" uid="uid://cxql752cep73d" path="res://assets/images/objects/restaurant_sprite_sheet.png" id="2_uk53i"]
-[ext_resource type="Texture2D" uid="uid://bm86kq4jjx7fp" path="res://assets/images/objects/stove_1.png" id="4_o1chu"]
-[ext_resource type="Texture2D" uid="uid://b8y244y6kv1kn" path="res://assets/images/objects/fridge_2.png" id="4_wwrw0"]
-[ext_resource type="Texture2D" uid="uid://kdvhw5knd7gi" path="res://assets/images/objects/cutting_board.png" id="5_3rriw"]
-[ext_resource type="Texture2D" uid="uid://bvv4ypa1ltlfm" path="res://assets/images/objects/cash_counter.png" id="6_h4ce7"]
+[ext_resource type="PackedScene" uid="uid://c4crj6rfatmnj" path="res://scenes/objects/stove.tscn" id="3_ukglk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_md458"]
 texture = ExtResource("1_md458")
@@ -297,75 +294,6 @@ texture = ExtResource("1_md458")
 [sub_resource type="TileSet" id="TileSet_o3nph"]
 sources/0 = SubResource("TileSetAtlasSource_wwrw0")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ce7"]
-texture = ExtResource("4_o1chu")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rriw"]
-texture = ExtResource("4_wwrw0")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-2:3/0 = 0
-6:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53c65"]
-texture = ExtResource("5_3rriw")
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43bxi"]
-texture = ExtResource("6_h4ce7")
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-0:2/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ovv48"]
-sources/3 = SubResource("TileSetAtlasSource_h4ce7")
-sources/5 = SubResource("TileSetAtlasSource_3rriw")
-sources/6 = SubResource("TileSetAtlasSource_53c65")
-sources/7 = SubResource("TileSetAtlasSource_43bxi")
-
 [node name="LevelRoot" type="Node2D" unique_id=658541266]
 
 [node name="InsideWall" type="TileMapLayer" parent="." unique_id=1233528565]
@@ -394,7 +322,5 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAKAAkAAAAMAAAAAAAKAAoAAAAMAAEAAAALAAkAAAANAAAAAAALAAoAAAANAAEAAAA=")
 tile_set = SubResource("TileSet_o3nph")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=535807472]
-scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAQAAEAAwAAAAAAAAAQAAIAAwAAAAEAAAARAAEAAwABAAAAAAARAAIAAwABAAEAAAASAAAABQAAAAAAAAASAAEABQAAAAEAAAASAAIABQAAAAIAAAATAAAABQABAAAAAAATAAEABQABAAEAAAATAAIABQABAAIAAAAOAAEABgAAAAAAAAAOAAIABgAAAAEAAAAPAAEABgABAAAAAAAPAAIABgABAAEAAAANAAYABwAAAAEAAAAOAAUABwABAAAAAAAOAAYABwABAAEAAAA=")
-tile_set = SubResource("TileSet_ovv48")
+[node name="Area2D" parent="." unique_id=1640987153 instance=ExtResource("3_ukglk")]
+position = Vector2(1035, 156)
