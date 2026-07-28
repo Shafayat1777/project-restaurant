@@ -9,8 +9,8 @@ func _ready() -> void:
 func _on_interact():
 	
 	if animation == "burner_on":
-		print("on")
+		material.set_shader_parameter("outline_enabled", false)
 		play("default")
 	else:
-		print("off")
+		material.set_shader_parameter("outline_enabled", true)
 		play("burner_on")
