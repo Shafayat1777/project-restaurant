@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://k16ttkcb5ry4" path="res://assets/images/tileset/floor_wall_sprite_sheet.png" id="1_md458"]
 [ext_resource type="Texture2D" uid="uid://cxql752cep73d" path="res://assets/images/objects/restaurant_sprite_sheet.png" id="2_uk53i"]
 [ext_resource type="PackedScene" uid="uid://c4crj6rfatmnj" path="res://scenes/objects/stove.tscn" id="3_ukglk"]
+[ext_resource type="PackedScene" uid="uid://bqoecl36t2u5l" path="res://scenes/objects/fridge.tscn" id="4_wwrw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_md458"]
 texture = ExtResource("1_md458")
@@ -323,4 +324,8 @@ tile_map_data = PackedByteArray("AAAKAAkAAAAMAAAAAAAKAAoAAAAMAAEAAAALAAkAAAANAAA
 tile_set = SubResource("TileSet_o3nph")
 
 [node name="Stove" parent="." unique_id=330518970 instance=ExtResource("3_ukglk")]
-position = Vector2(1075, 150)
+position = Vector2(1081, 125)
+
+[node name="Fridge" parent="." unique_id=378873722 instance=ExtResource("4_wwrw0")]
+position = Vector2(1209, 133)
+animation = &"default"

@@ -10,13 +10,13 @@ func _ready() -> void:
 func _on_interact():
 	if is_on:
 		# Turn off: play turning_off, then default
-		play("turning_off")
+		play("closing")
 		await animation_finished
 		play("default")
 		is_on = false
 	else:
 		# Turn on: play turning_on, then burner_on
-		play("turning_on")
+		play("opening")
 		await animation_finished
-		play("burner_on")
+		play("open")
 		is_on = true

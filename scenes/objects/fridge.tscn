@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bqoecl36t2u5l"]
+
+[ext_resource type="Shader" uid="uid://cyvg43cuqofl5" path="res://shaders/stove.gdshader" id="1_q5efo"]
+[ext_resource type="Texture2D" uid="uid://52yc5uejhcxy" path="res://assets/images/objects/fridge.png" id="2_u6nfb"]
+[ext_resource type="PackedScene" uid="uid://o6kr1e0dgfs" path="res://interaction_components/interactable.tscn" id="3_3roh1"]
+[ext_resource type="Script" uid="uid://dchjdv3qbo2ig" path="res://scripts/fridge.gd" id="3_u6nfb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c8mmw"]
+shader = ExtResource("1_q5efo")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 1.0
+shader_parameter/outline_enabled = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oxla"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk27s"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaoql"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk3p6"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(288, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phf75"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buhgb"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3roh1"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ycf6"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uckhj"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(288, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgsu5"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlbtg"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kdvn"]
+atlas = ExtResource("2_u6nfb")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6f4wy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oxla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk27s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaoql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk3p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phf75")
+}],
+"loop": 0,
+"name": &"closing",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buhgb")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3roh1")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ycf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uckhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgsu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlbtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kdvn")
+}],
+"loop": 0,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f4wy"]
+size = Vector2(25.25, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08r2w"]
+size = Vector2(25, 30.75)
+
+[node name="Fridge" type="AnimatedSprite2D" unique_id=378873722]
+material = SubResource("ShaderMaterial_c8mmw")
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_6f4wy")
+animation = &"opening"
+script = ExtResource("3_u6nfb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2130002152]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1005853120]
+position = Vector2(-0.375, -8.75)
+shape = SubResource("RectangleShape2D_6f4wy")
+
+[node name="Interactable" parent="." unique_id=612619034 node_paths=PackedStringArray("sprite") instance=ExtResource("3_3roh1")]
+collision_mask = 2
+interact_name = "Fridge"
+is_intractable = true
+sprite = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=2129839231]
+position = Vector2(-0.25, 5.375)
+shape = SubResource("RectangleShape2D_08r2w")

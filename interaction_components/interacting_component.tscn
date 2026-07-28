@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6f4wy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6f4wy"]
-font_size = 12
+font_size = 10
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -26,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -50.0
-offset_right = 52.5
-offset_bottom = -27.0
+offset_left = -52.0
+offset_top = -33.0
+offset_right = 53.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "[E] to Interact"
