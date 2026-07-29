@@ -14,12 +14,17 @@ func _input(event: InputEvent) -> void:
 			
 			can_interact = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_interactions and can_interact:
 		current_interactions.sort_custom(_sort_by_nearest)
 		if current_interactions[0].is_intractable:
+			current_interactions[0].set_highlight(true)
 			interact_label.text = current_interactions[0].interact_name
 			interact_label.show()
+			
+		# un-highlight everything except the nearest one
+		for i in range(1, current_interactions.size()):
+			current_interactions[i].set_highlight(false)
 	else:
 		interact_label.hide()
 
@@ -33,4 +38,5 @@ func _on_interact_range_area_entered(area: Area2D) -> void:
 
 
 func _on_interact_range_area_exited(area: Area2D) -> void:
+	area.set_highlight(false)
 	current_interactions.erase(area)

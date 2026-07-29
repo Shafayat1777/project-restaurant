@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://c4crj6rfatmnj"]
 
+[ext_resource type="Shader" uid="uid://cyvg43cuqofl5" path="res://shaders/stove.gdshader" id="1_7u2d5"]
 [ext_resource type="Texture2D" uid="uid://uk11c3sej0ge" path="res://assets/images/objects/stove.png" id="1_ktuod"]
 [ext_resource type="Script" uid="uid://p2ywj2d3o8q5" path="res://scripts/stove.gd" id="2_quf57"]
 [ext_resource type="PackedScene" uid="uid://o6kr1e0dgfs" path="res://interaction_components/interactable.tscn" id="3_7u2d5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ktuod"]
-atlas = ExtResource("1_ktuod")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxd33"]
+shader = ExtResource("1_7u2d5")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdgw4"]
 atlas = ExtResource("1_ktuod")
@@ -19,9 +22,6 @@ region = Rect2(0, 0, 48, 48)
 [sub_resource type="SpriteFrames" id="SpriteFrames_6f4wy"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ktuod")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qdgw4")
 }],
@@ -45,8 +45,10 @@ size = Vector2(29.5, 28.5)
 size = Vector2(29, 31)
 
 [node name="Stove" type="AnimatedSprite2D" unique_id=330518970]
+material = SubResource("ShaderMaterial_rxd33")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_6f4wy")
+animation = &"burner_on"
 script = ExtResource("2_quf57")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=511611901]
@@ -55,9 +57,11 @@ script = ExtResource("2_quf57")
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_6f4wy")
 
-[node name="Interactable" parent="." unique_id=612619034 instance=ExtResource("3_7u2d5")]
+[node name="Interactable" parent="." unique_id=612619034 node_paths=PackedStringArray("sprite") instance=ExtResource("3_7u2d5")]
+collision_mask = 2
 interact_name = "Stove"
 is_intractable = true
+sprite = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1910826770]
 position = Vector2(0, 2.25)
